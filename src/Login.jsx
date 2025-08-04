@@ -12,6 +12,8 @@ export const Login=()=> {
     password: '',
   });
 
+
+
  
   
  const [loading,setLoading]=useState(false)
@@ -46,7 +48,7 @@ const navigate=useNavigate()
      
 
        if (response.ok) {
-       login(data.token, formData.email)
+       login(data.token, formData.email, data.user.id)
       
      
         toast.success("Login Successfully!");

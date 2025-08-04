@@ -6,7 +6,9 @@ import { Routes, Route } from 'react-router-dom';
 import {PrivateRoute} from "../auth/privateRoute"
 import { CreatePost } from "./Create_Post";
 import {AllPosts} from './All_Posts'
-import {MyPosts} from './My_Posts'
+import {MyProfile} from './My_Profile'
+
+
 
 
 
@@ -26,7 +28,8 @@ export const App=() =>{
         <Route path="/register" element={<Register />} />
         <Route path="/create-post" element={<PrivateRoute><CreatePost/></PrivateRoute>} />
         <Route path="/allposts" element={<PrivateRoute><AllPosts /></PrivateRoute>} />
-        <Route path="/myposts" element={<PrivateRoute><MyPosts /></PrivateRoute>} />
+        <Route path="/MyProfile" element={<PrivateRoute><MyProfile /></PrivateRoute>} />
+        {/* <Route path="/MyPosts" element={<PrivateRoute><MyProfile /></PrivateRoute>} /> */}
 
       </Routes>
 

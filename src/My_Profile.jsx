@@ -2,18 +2,17 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../auth/auth";
 import { toast } from "react-toastify";
 
-export const MyPosts= () => {
+export const MyProfile = () => {
   const { token } = useContext(AuthContext);
-  const [posts, setposts] = useState([]);
+  const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
 
   useEffect(()=>{
-    console.log(posts)
+    console.log("Profile is",profiles)
+  },[profiles])
 
-  },[posts])
-
-  const fetchMyPosts= async () => {
+  const fetchProfiles = async () => {
     try {
       const response = await fetch(
         "https://community-platform-backend-h293.onrender.com/user/profile",
@@ -32,9 +31,9 @@ export const MyPosts= () => {
       // Check if data is array or single object
       if (response.ok) {
         if (Array.isArray(data)) {
-          setposts(data);
+          setProfiles(data);
         } else if (typeof data === "object") {
-          setposts([data]); // wrap object in array
+          setProfiles([data]); // wrap object in array
         } else {
           toast.error("Unexpected response format.");
         }
@@ -43,13 +42,13 @@ export const MyPosts= () => {
       }
     } catch (error) {
       console.error("Profile fetch error:", error);
-      toast.error("Server error while loading posts.");
+      toast.error("Server error while loading profiles.");
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchMyPosts();
+    fetchProfiles();
   }, []);
 
   return (
@@ -58,12 +57,12 @@ export const MyPosts= () => {
         {loading && (
           <div className="absolute inset-0 bg-white/70 z-50 flex flex-col items-center justify-center">
             <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-            <p className="text-sm text-gray-600 mt-2">Loading posts...</p>
+            <p className="text-sm text-gray-600 mt-2">Loading profiles...</p>
           </div>
         )}
 
-        {Array.isArray(posts) && posts.length > 0 ? (
-          posts.map((profile) => (
+        {Array.isArray(profiles) && profiles.length > 0 ? (
+          profiles.map((profile) => (
             <div
               key={profile._id}
               className="bg-white p-4 mb-4 rounded shadow border border-gray-200"
@@ -72,12 +71,12 @@ export const MyPosts= () => {
               <p className="text-gray-700">Email: {profile.email}</p>
               <p className="text-gray-600">Bio: {profile.bio || "No bio provided."}</p>
               <p className="text-sm text-gray-500 text-right">
-                Posted: {new Date(profile.createdAt).toLocaleString()}
+                Joined: {new Date(profile.createdAt).toLocaleString()}
               </p>
             </div>
           ))
         ) : (
-          !loading && <p className="text-gray-600">No Posts available.</p>
+          !loading && <p className="text-gray-600">No profiles available.</p>
         )}
       </div>
     </div>
