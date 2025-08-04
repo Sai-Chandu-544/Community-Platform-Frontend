@@ -32,12 +32,12 @@ export const MyPosts = () => {
 
     if (response.ok) {
       setPosts(Array.isArray(data) ? data : []);
-      // toast.success("Fetched your posts!");
+      // toast.success("Fetched your posts!")
     } else {
       toast.error(data.message || "Failed to fetch posts.");
     }
   } catch (err) {
-    setLoading(false);
+    
     toast.error("Internal Server Error");
   }
 };

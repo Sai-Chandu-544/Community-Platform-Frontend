@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../auth/auth";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const { token, logout } = useContext(AuthContext);
@@ -18,9 +19,11 @@ export const Navbar = () => {
     setUserEmail(mail)
   }, [token]);
 
+  const navigate=useNavigate()
 
   const handlelogout=()=>{
     logout()
+    navigate("/")
 
   }
 

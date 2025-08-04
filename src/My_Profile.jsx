@@ -9,7 +9,7 @@ export const MyProfile = () => {
 
 
   useEffect(()=>{
-    console.log("Profile is",profiles)
+    // console.log("Profile is",profiles)
   },[profiles])
 
   const fetchProfiles = async () => {
