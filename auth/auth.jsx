@@ -4,7 +4,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
-  // const [userId,setUserId]=useState("")
+ 
 
 
   //  Load token from localStorage on first load
@@ -15,10 +15,10 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const login = (token,user) => {
+  const login = (token,user,userId) => {
     localStorage.setItem("token", token);
     localStorage.setItem("User",user);
-    // localStorage.setItem("UserId",userId)
+    localStorage.setItem("UserId",userId)
     setToken(token);
    
   };

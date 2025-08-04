@@ -84,11 +84,11 @@ export const Navbar = () => {
                     <div className="py-2">
                     
                       <Link to="/MyProfile" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
-                        <i className="ri-profile-lin  mr-2"></i> Profile     
+                        <i className="ri-profile-line mr-2"></i> Profile     
                       </Link>
-                      {/* <Link to="/MyPosts" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+                      <Link to="/MyPosts" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
                         <i className="ri-chat-1-line  mr-2"></i>My Posts   
-                      </Link> */}
+                      </Link>
                       <button onClick={handlelogout} className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-50">
                         <i className="ri-logout-box-line mr-2"></i> Sign Out
                       </button>

@@ -7,6 +7,7 @@ import {PrivateRoute} from "../auth/privateRoute"
 import { CreatePost } from "./Create_Post";
 import {AllPosts} from './All_Posts'
 import {MyProfile} from './My_Profile'
+import {MyPosts} from './My_Posts'
 
 
 
@@ -29,7 +30,7 @@ export const App=() =>{
         <Route path="/create-post" element={<PrivateRoute><CreatePost/></PrivateRoute>} />
         <Route path="/allposts" element={<PrivateRoute><AllPosts /></PrivateRoute>} />
         <Route path="/MyProfile" element={<PrivateRoute><MyProfile /></PrivateRoute>} />
-        {/* <Route path="/MyPosts" element={<PrivateRoute><MyProfile /></PrivateRoute>} /> */}
+        <Route path="/MyPosts" element={<PrivateRoute><MyPosts/></PrivateRoute>} />
 
       </Routes>
 
